@@ -23,9 +23,9 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 //var Demo = require('./components/demo.jsx').Demo;
 var Commentbox = require('./components/tutorial.jsx').CommentBox;
-var data = [
-    {id: 1, author: "Pete hunt", text: "This is one comment"},
-    {id: 2, author: "Jordan Walker", text: "This is *another* comment"}
-];
-ReactDOM.render(<Commentbox url="comments.json"  pollInterval={2000}/>, document.getElementById('content'));
+var FilterableProductTable = require('./components/products.jsx');
+
+ReactDOM.render(<Commentbox url="comments.json" pollInterval={2000}/>, document.getElementById('content'));
+
+ReactDOM.render(<FilterableProductTable url="products.json"/>, document.getElementById('products'));
 
