@@ -11,15 +11,25 @@ module.exports = {
         './src/index'
     ],
     output: {
-        path:  './dist',
+        path: './dist',
         filename: 'bundle.js',
-        publicPath: '/'
+        publicPath: '/',
+        externals: {
+            react: 'react',
+            'react/addons': 'react'
+        }
+
     },
     devServer: {
         inline: true,
         contentBase: './dist'
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             title: 'Reactjs playground',
@@ -39,6 +49,10 @@ module.exports = {
                 presets: ['react', 'es2015'],
                 plugins: ['transform-runtime']
             }
-        }]
+        },
+            {
+                test: /\.css$/,
+                loader: 'style!css'
+            }]
     }
 };

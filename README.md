@@ -19,3 +19,6 @@ watchify -t 6to5ify ./src/index.js -o ./dist/bundle.js -v
 * npm install --save-dev webpack webpack-dev-server
 * npm install --save-dev react-hot-loader //deprecated
 * npm install --save-dev html-webpack-plugin
+
+### enable auto-load css
+*  npm install css-loader style-loader --save-dev
